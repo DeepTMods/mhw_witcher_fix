@@ -35,5 +35,5 @@ You're good to go.
 You will see the blue exclamation mark in Research Base from the lynian expert.
 
 ## Thanks:
-* FusionR on Nexus Mods: https://www.nexusmods.com/monsterhunterworld/mods/188?tab=bugs
-* Fusion86 on GitHub: https://www.reddit.com/r/MonsterHunterWorld/comments/f6igrs/psa_potential_fix_for_witcher_missing_geralt_bug/
+* FusionR on Nexus Mods: https://next.nexusmods.com/profile/FusionR
+* Fusion86 on GitHub:  https://github.com/Fusion86
