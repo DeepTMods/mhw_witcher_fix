@@ -86,7 +86,7 @@ def main():
         )
 
         status_var = tk.StringVar()
-        status_var.set("v0.1, by DeepT. @ DeepTMods(DTM)")
+        status_var.set("v0.1.20240715-alpha, by DeepT. @ DeepTMods(DTM)")
         status_bar = tk.Label(
             root, textvariable=status_var, bd=1, relief=tk.SUNKEN, anchor=tk.W
         )
