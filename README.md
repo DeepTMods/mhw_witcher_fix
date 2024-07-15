@@ -2,14 +2,14 @@
 There is known bug when you using the HUB MOD:
 https://www.nexusmods.com/monsterhunterworld/mods/188
 
-The disccustion:
+The discustion:
 https://www.nexusmods.com/monsterhunterworld/mods/188?tab=bugs
 
-Currently potential fix:
+Currently potential fix, not perfect:
 https://www.reddit.com/r/MonsterHunterWorld/comments/f6igrs/psa_potential_fix_for_witcher_missing_geralt_bug/
 
-But there is no perfect fix out there, so I just make this.
-You will get everything normal even the missing Geralt.
+### There is no perfect fix out there, so I just make this.
+### You will get everything normal even the missing Geralt.
 
 ## How to use
 * No need to remove the HUB MOD.
