@@ -1,3 +1,4 @@
+import argparse
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import webbrowser
@@ -22,6 +23,16 @@ def fix_slot_data(data):
     return data
 
 
+def modify_file(input_file_path, output_file_path):
+    with open(input_file_path, "rb") as file:
+        data = bytearray(file.read())
+
+    data = fix_slot_data(data)
+
+    with open(output_file_path, "wb") as file:
+        file.write(data)
+
+
 def open_file_dialog():
     input_file_path = filedialog.askopenfilename(filetypes=[("MHW Slot Data", "*.mhwslot")])
     with open(input_file_path, "rb") as file:
@@ -41,37 +52,47 @@ def open_file_dialog():
 
 
 def main():
-    root = tk.Tk()
-    root.title("MHW witcher side quest Fixer")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input_file_path", help="source file", nargs="?")
+    parser.add_argument("output_file_path", help="fix file", nargs="?")
+    args = parser.parse_args()
 
-    label = tk.Label(
-        root,
-        text="This is a .mhwslot data fixing tool for fixing Witcher side quest missing.",
-    )
-    label.pack()
+    if args.input_file_path and args.output_file_path:
+        modify_file(args.input_file_path, args.output_file_path)
+    else:
+        root = tk.Tk()
+        root.title("MHW witcher side quest Fixer")
 
-    button = tk.Button(
-        root,
-        text="Choose MHW Slot Data",
-        command=lambda: open_file_dialog(),
-    )
-    button.pack()
+        label = tk.Label(
+            root,
+            text="This is a .mhwslot data fixing tool for fixing Witcher side quest missing.",
+        )
+        label.pack()
 
-    link = tk.Label(root, text="GitHub", fg="blue", cursor="hand2")
-    link.pack()
-    link.bind(
-        "<Button-1>",
-        lambda e: webbrowser.open_new("https://github.com/DeepTMods/mhw_witcher_fixer"),
-    )
+        button = tk.Button(
+            root,
+            text="Choose MHW Slot Data",
+            command=lambda: open_file_dialog(),
+        )
+        button.pack()
 
-    status_var = tk.StringVar()
-    status_var.set("v0.1.20240716-alpha, by DeepT. @ DeepTMods(DTM)")
-    status_bar = tk.Label(
-        root, textvariable=status_var, bd=1, relief=tk.SUNKEN, anchor=tk.W
-    )
-    status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+        link = tk.Label(root, text="GitHub", fg="blue", cursor="hand2")
+        link.pack()
+        link.bind(
+            "<Button-1>",
+            lambda e: webbrowser.open_new(
+                "https://github.com/DeepTMods/mhw_witcher_fix"
+            ),
+        )
 
-    root.mainloop()
+        status_var = tk.StringVar()
+        status_var.set("v0.1.20240716-alpha, by DeepT. @ DeepTMods(DTM)")
+        status_bar = tk.Label(
+            root, textvariable=status_var, bd=1, relief=tk.SUNKEN, anchor=tk.W
+        )
+        status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+
+        root.mainloop()
 
 
 if __name__ == "__main__":
